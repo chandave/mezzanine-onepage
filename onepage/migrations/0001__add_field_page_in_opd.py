@@ -14,9 +14,9 @@ class Migration(migrations.Migration):
                       keep_default=False)
 
 
-    def backwards(self, orm):
-        # Deleting field 'Page.in_opd'
-        db.delete_column(u'pages_page', u'in_opd')
+#    def backwards(self, orm):
+#        # Deleting field 'Page.in_opd'
+#        db.delete_column(u'pages_page', u'in_opd')
 
 
     models = {
