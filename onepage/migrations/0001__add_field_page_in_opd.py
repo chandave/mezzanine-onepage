@@ -5,7 +5,7 @@ from django.db import migrations, models
 import django.db.models.deletion
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
     def forwards(self, orm):
         # Adding field 'Page.in_opd'
