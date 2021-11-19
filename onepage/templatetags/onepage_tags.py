@@ -29,12 +29,13 @@ def render_in_place(context, page, request):
     """
     renders the content of the given page in place.
     """
-    context['page'] = page
+    extra_context = {}
+    extra_context['page'] = page
     template_name = u"includes/%s_content_only.html" % page.content_model
     if page.content_model == "form":
         # adapted from Josh Cartmell's gist : https://gist.github.com/joshcartme/5130702
-        context['form'] = FormForForm(page.form, RequestContext(request), None)
-    return get_template(template_name).render(Context(context))
+        extra_context['form'] = FormForForm(page.form, RequestContext(request), None)
+    return get_template(template_name).render(extra_context, request=request)
 
 @register.filter
 def get_html_id(page):
